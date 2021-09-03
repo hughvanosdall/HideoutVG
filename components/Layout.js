@@ -7,11 +7,20 @@ export default function Layout({ children }) {
         <Link href="/">
           <a>
             <h1>
-              <span>Just Add</span>
-              <span>Marmite</span>
+              <span>Hideout VG</span>
+              
             </h1>
-            <h2>Spread The Joy</h2>
+            <h2>News, Reviews, Opinions</h2>
           </a>
+        </Link>
+        <Link href="/reviews">
+          <a>Reviews</a>
+        </Link>
+        <Link href="/news">
+          <a>News</a>
+        </Link>
+        <Link href="/about">
+          <a>About</a>
         </Link>
       </header>
 
@@ -19,9 +28,9 @@ export default function Layout({ children }) {
         { children }
       </div>
 
-      <footer>
+      {/* <footer>
         <p>Copyright 2021 Just Add Marmite :)</p>
-      </footer>
+      </footer> */}
     </div>
   )
 }
