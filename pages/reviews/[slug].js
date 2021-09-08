@@ -39,7 +39,7 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export default function ReviewDetails({ review }) {
-  if(!reivew) {
+  if(!review) {
     return (
       <Skeleton />
     )
