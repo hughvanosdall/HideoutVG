@@ -16,7 +16,7 @@ export default function Skeleton() {
                 }
 
                 .skeleton > div {
-                    backgorund: #dbcc1a;
+                    background: #dbcc1a;
                     border-radius: 4px;
                     margin: 20px 0;
                 }
