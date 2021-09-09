@@ -10,7 +10,7 @@ const client = createClient({
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({ 
-    content_type: "review" 
+    content_type: "article" 
   })
 
   const paths = res.items.map(item => {
@@ -27,9 +27,10 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const { items } = await client.getEntries({
-    content_type: 'review',
+    content_type: 'article',
     'fields.slug': params.slug
   })
+  
 
   if(!items.length) {
     return{
@@ -41,19 +42,20 @@ export const getStaticProps = async ({ params }) => {
   }
 
   return {
-    props: { review: items[0] },
+    props: { article: items[0] },
     revalidate: 1
   }
 
 }
 
-export default function ReviewDetails({ review }) {
-  if(!review) {
+export default function ArticleDetails({ article }) {
+  
+  if(!article) {
     return (
       <Skeleton />
     )
   }
-  const {featuredImage, title, reviewText} = review.fields;
+  const {featuredImage, title, articleText} = article.fields;
 
   return (
     <div>
@@ -66,13 +68,15 @@ export default function ReviewDetails({ review }) {
         <h2>{title}</h2>
       </div>
 
-      <div className="review-content">
-        <div>{documentToReactComponents(reviewText)}</div>
+      <div className="article-content">
+        <article>{documentToReactComponents(articleText)}</article>
       </div>
 
-      {/* <style jsx>
-
-      </style> */}
+      <style jsx>{`
+        .article-content {
+          font-size: 0.75em;
+        }
+      `}</style>
     </div>
   )
 }

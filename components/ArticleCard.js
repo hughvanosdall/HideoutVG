@@ -2,10 +2,10 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function ReviewCard({review}) {
-    const {title, slug, thumbnail} = review.fields;
+export default function Article({article}) {
+    const {title, slug, thumbnail} = article.fields;
     return (
-        <div className="review-card">
+        <div className="article-card">
             <div className="featured">
                 <Image 
                     src={`https:${thumbnail.fields.file.url}`}
@@ -18,7 +18,7 @@ export default function ReviewCard({review}) {
                     <h4>{title}</h4>
                 </div>
                 <div className="actions">
-                    <Link href={`/reviews/${slug}`}><a>Full Review</a></Link>
+                    <Link href={`/articles/${slug}`}><a>Read More</a></Link>
                 </div>
             </div>
             <hr />

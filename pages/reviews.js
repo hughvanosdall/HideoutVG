@@ -1,6 +1,6 @@
 import React from 'react'
 import {createClient} from 'contentful';
-import ReviewCard from '../components/ReviewCard';
+import ArticleCard from '../components/ArticleCard';
 
 export async function getStaticProps() {
     const client = createClient({
@@ -8,8 +8,10 @@ export async function getStaticProps() {
       accessToken: process.env.CONTENTFUL_ACCESS_KEY,
     });
   
-    const res = await client.getEntries({content_type: 'review'});
-  
+    // const res = await client.getEntries({content_type: 'article'});
+    const res = await client.getEntries({'metadata.tags.sys.id[all]': 'review'})
+
+    
     return {
       props: {
         reviews: res.items,
@@ -19,11 +21,10 @@ export async function getStaticProps() {
   }
 
 export default function Reviews({reviews}) {
-    
     return (
         <div className="review-list">
             {reviews.map(review => (
-                <ReviewCard key={review.sys.id} review={review}/>
+                <ArticleCard key={review.sys.id} article={review}/>
             ))}
 
             <style jsx>{`

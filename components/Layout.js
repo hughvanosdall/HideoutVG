@@ -1,27 +1,30 @@
 import Link from 'next/link'
+import React from 'react'
 
 export default function Layout({ children }) {
   return (
     <div className="layout">
       <header>
-        <Link href="/">
-          <a>
-            <h1>
-              <span>Hideout VG</span>
-              
-            </h1>
-            <h2>News, Reviews, Opinions</h2>
-          </a>
-        </Link>
-        <Link href="/reviews">
-          <a>Reviews</a>
-        </Link>
-        <Link href="/news">
-          <a>News</a>
-        </Link>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
+        <div className="page-title">
+          <Link href="/">
+            <a>
+              <h1>
+                <span className="title-main">Hideout<span className="title-sub">VG</span></span>
+              </h1>
+            </a>
+          </Link>
+        </div>
+        <div className="nav-links">
+          <Link href="/reviews">
+            <a className="nav-link">Reviews</a>
+          </Link>
+          <Link href="/news">
+            <a className="nav-link">News</a>
+          </Link>
+          <Link href="/about">
+            <a className="nav-link">About</a>
+          </Link>
+        </div>
       </header>
 
       <div className="page-content">
@@ -31,6 +34,12 @@ export default function Layout({ children }) {
       {/* <footer>
         <p>Copyright 2021 Just Add Marmite :)</p>
       </footer> */}
+
+      <style jsx>{`
+        nav-link {
+          margin: 100px;
+        }
+      `}</style>
     </div>
   )
 }
