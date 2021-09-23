@@ -1,47 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-  background: #F4E640;
+  background: #fff;
   margin: 0;
   font-family: 'Roboto';
   font-size: 1.5em;  
 }
+ 
 .layout {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
+
+
 header {
   text-align: center;
-  margin: 60px 0;
+  background: #fff;
+  /* margin: 20px 20px 40px 20px; */
+  margin-bottom: 40px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
+
+
 header a {
   text-decoration: none;
   color: black;
   text-transform: uppercase;
   display: inline-block;
+  padding: 12px;
 }
 header h1, header h2 {
   margin: 0;
 }
-
-
-/* header span {
-  display: block;
-  line-height: 1em;
-}
-header span:first-child {
+.title-main {
   font-size: 1em;
-  font-weight: 400;
+  font-weight: 600;
 }
-header span:last-child {
+.title-sub {
   font-size: 1.5em;
   font-weight: 800;
-} */
-header h2 {
-  font-size: 1.2em;
-  font-weight: 400;
 }
+
 footer {
   background: #111;
   color: #bbb;
@@ -49,6 +56,7 @@ footer {
   text-align: center;
   margin-top: auto
 }
+
 .page-content {
   max-width: 1200px;
   margin: 20px auto 80px;
@@ -56,22 +64,20 @@ footer {
   width: 100%;
   box-sizing: border-box;
 }
-
-.page-title span {
-  line-height: 1em;
-}
-
-.title-main {
-  font-size: 1.65em;
-  font-weight: 800;
-  text-align: center;
-}
-
-.title-sub {
-  font-size: 0.5em;
-  font-weight: 600;
+.nav-links {
+  padding-right: 1em;
 }
 
 .nav-link {
   padding: 10px;
 }
+
+.article-list {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: center;
+}
+
+
+

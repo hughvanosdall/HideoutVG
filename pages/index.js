@@ -27,14 +27,6 @@ export default function Home({articles}) {
             {articles.map(article => (
                 <ArticleCard key={article.sys.id} article={article}/>
             ))}
-
-            <style jsx>{`
-                .article-list {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    grid-gap: 20px 60px;
-                }
-            `}</style>
         </div>
     )
 }

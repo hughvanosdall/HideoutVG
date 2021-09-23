@@ -20,18 +20,10 @@ export async function getStaticProps() {
 
 export default function News({news}) {
     return (
-        <div className="news-list">
+        <div className="article-list">
             {news.map(article => (
                 <ArticleCard key={article.sys.id} article={article}/>
             ))}
-
-            <style jsx>{`
-                .news-list {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    grid-gap: 20px 60px;
-                }
-            `}</style>
         </div>
     )
 }

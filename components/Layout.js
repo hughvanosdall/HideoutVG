@@ -26,20 +26,15 @@ export default function Layout({ children }) {
           </Link>
         </div>
       </header>
-
+      
       <div className="page-content">
+        
         { children }
       </div>
 
-      {/* <footer>
-        <p>Copyright 2021 Just Add Marmite :)</p>
-      </footer> */}
-
-      <style jsx>{`
-        nav-link {
-          margin: 100px;
-        }
-      `}</style>
+      <footer>
+        <p>Copyright 2021 <span className="title-main">HIDEOUT<span className="title-sub">VG</span></span></p>
+      </footer>
     </div>
   )
 }

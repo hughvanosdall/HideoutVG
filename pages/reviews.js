@@ -22,18 +22,10 @@ export async function getStaticProps() {
 
 export default function Reviews({reviews}) {
     return (
-        <div className="review-list">
+        <div className="article-list">
             {reviews.map(review => (
                 <ArticleCard key={review.sys.id} article={review}/>
             ))}
-
-            <style jsx>{`
-                .review-list {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    grid-gap: 20px 60px;
-                }
-            `}</style>
         </div>
     )
 }
