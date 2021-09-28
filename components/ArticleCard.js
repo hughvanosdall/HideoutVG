@@ -8,52 +8,49 @@ export default function Article({article}) {
         <div className="article-card">
             <div className="featured">
                 <Image 
+                    className="thumbnail"
                     src={`https:${thumbnail.fields.file.url}`}
-                    width={thumbnail.fields.file.details.image.width}
-                    height={thumbnail.fields.file.details.image.height}
+                    width={400}
+                    height={200}
+                    
                 />
             </div>
             <div className="content">
                 <div className="info">
-                    <h4>{title}</h4>
+                    {title}
                 </div>
                 <div className="actions">
                     <Link href={`/articles/${slug}`}><a>Read More</a></Link>
                 </div>
+                
             </div>
-            <hr />
-
+            
             <style jsx>
                 {`
-                    
-                    .content {
-                        background: #fff;
-                        box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-                        margin: 0;
-                        position: relative;
-                        top: -40px;
-                        left: -10px;
-                    }
-                    .info {
-                        padding: 16px;
-                    }
-                    .info h4 {
-                        margin: 4px 0;
-                        text-transform: uppercase;
-                    }
-                    .info p {
-                        margin: 0;
-                        color: #777;
-                    }
-                    .actions {
-                        margin-top: 20px;
+                    .article-card {
                         display: flex;
-                        justify-content: flex-end;
+                        border-bottom: 4px dotted blue;
+                        padding: 20px 40px
                     }
+
+                    .featured {
+                        max-width: 400px;
+                    }
+
+                    .content {
+                        display: flex;
+                        flex-direction: column;
+                        align-content: flex-start;
+                        justify-content: space-around;
+                        align-items: flex-start;
+
+                        padding: 50px;
+                    }
+
                     .actions a {
                         color: #fff;
                         background: #f01b29;
-                        padding: 16px 24px;
+                        
                         text-decoration: none;
                     }
                 `}
