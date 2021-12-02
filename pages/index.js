@@ -10,6 +10,7 @@ export async function getStaticProps() {
   
     const res = await client.getEntries({content_type: 'article'});
     //const res = await client.getEntries({'metadata.tags.sys.id[all]': 'review'})
+    console.log(res);
 
     
     return {
@@ -21,7 +22,7 @@ export async function getStaticProps() {
   }
 
 export default function Home({articles}) {
-    console.log(articles);
+    
     return (
         <div className="article-list">
             {articles.map(article => (

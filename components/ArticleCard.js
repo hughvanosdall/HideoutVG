@@ -1,9 +1,17 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+
 
 export default function Article({article}) {
-    const {title, slug, thumbnail} = article.fields;
+    const {title, slug, thumbnail, articleText} = article.fields;
+    let {createdAt} = article.sys
+    const date = new Date(createdAt);
+    createdAt = date.toString();
+    createdAt = createdAt.split(' ').slice(1,4);
+    createdAt = `${createdAt[0]} ${createdAt[1]}, ${createdAt[2]}`
+    
     return (
         <Link href={`/articles/${slug}`}>
             <div className="article-card">
@@ -18,32 +26,11 @@ export default function Article({article}) {
                 </div>
                 <div className="content">
                     <div className="info">
-                        {title}
+                        {title}<br/>
+                        <span className="createdAt">{createdAt}</span>
+                        {/* <article>{documentToReactComponents(articleText.substring(0,20))}</article> */}
                     </div>
-                    <div className="actions">
-                        {/* <Link href={`/articles/${slug}`}><a>Read More</a></Link> */}
-                    </div>
-                    
                 </div>
-                {/* <div className="featured">
-                    <Image 
-                        className="thumbnail"
-                        src={`https:${thumbnail.fields.file.url}`}
-                        width={400}
-                        height={200}
-                        
-                    />
-                </div>
-                <div className="content">
-                    <div className="info">
-                        {title}
-                    </div>
-                    <div className="actions">
-                        <Link href={`/articles/${slug}`}><a>Read More</a></Link>
-                    </div>
-                    
-                </div> */}
-                
                 <style jsx>
                     {`
                         .article-card {
@@ -56,7 +43,7 @@ export default function Article({article}) {
                         }
     
                         .featured {
-                            max-width: 400px;
+                            max-width: 40%;
                         }
     
                         .content {
@@ -68,10 +55,8 @@ export default function Article({article}) {
     
                             padding: 50px;
                         }
-    
-                        .actions a {
-                            color: #6C6C6C;
-                            text-decoration: none;
+                        .createdAt {
+                            font-size: 14px;
                         }
                     `}
                 </style>
