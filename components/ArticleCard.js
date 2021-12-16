@@ -1,17 +1,17 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-
 
 export default function Article({article}) {
-    const {title, slug, thumbnail, articleText} = article.fields;
+    const {title, slug, thumbnail, excerpt, author} = article.fields;
     let {createdAt} = article.sys
     const date = new Date(createdAt);
     createdAt = date.toString();
     createdAt = createdAt.split(' ').slice(1,4);
     createdAt = `${createdAt[0]} ${createdAt[1]}, ${createdAt[2]}`
     
+    console.log(article)
+
     return (
         <Link href={`/articles/${slug}`}>
             <div className="article-card">
@@ -19,16 +19,16 @@ export default function Article({article}) {
                     <Image 
                         className="thumbnail"
                         src={`https:${thumbnail.fields.file.url}`}
-                        width={400}
-                        height={200}
-                        
+                        width={500}
+                        height={250}  
                     />
                 </div>
                 <div className="content">
                     <div className="info">
                         {title}<br/>
-                        <span className="createdAt">{createdAt}</span>
-                        {/* <article>{documentToReactComponents(articleText.substring(0,20))}</article> */}
+                        <span className="author">{author}</span><br/>
+                        <span className="createdAt">{createdAt}</span><br/>
+                        <span className="excerpt">{excerpt}</span>
                     </div>
                 </div>
                 <style jsx>
@@ -36,7 +36,8 @@ export default function Article({article}) {
                         .article-card {
                             display: flex;
                             border-bottom: 2px solid lightgray;
-                            padding: 20px 40px
+                            padding: 20px 40px;
+                            height: 500px;
                         }
                         .article-card:hover {
                             cursor: pointer;
@@ -44,6 +45,7 @@ export default function Article({article}) {
     
                         .featured {
                             max-width: 40%;
+                            position: relative;
                         }
     
                         .content {
@@ -53,9 +55,16 @@ export default function Article({article}) {
                             justify-content: space-around;
                             align-items: flex-start;
     
-                            padding: 50px;
+                            padding: 25px;
+                            max-width: 60%
                         }
                         .createdAt {
+                            font-size: 14px;
+                        }
+                        .excerpt {
+                            font-size: 14px;
+                        }
+                        .author {
                             font-size: 14px;
                         }
                     `}
@@ -64,3 +73,4 @@ export default function Article({article}) {
         </Link>
     )
 }
+
