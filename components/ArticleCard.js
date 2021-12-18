@@ -25,10 +25,9 @@ export default function Article({article}) {
                 </div>
                 <div className="content">
                     <div className="info">
-                        {title}<br/>
-                        <span className="author">{author}</span><br/>
-                        <span className="createdAt">{createdAt}</span><br/>
-                        <span className="excerpt">{excerpt}</span>
+                        <h2 className="title">{title}</h2><br/>
+                        <p className="author">{author} <span className="createdAt">{createdAt}</span></p><br/>
+                        <p className="excerpt">{excerpt}</p>
                     </div>
                 </div>
                 <style jsx>
@@ -37,7 +36,7 @@ export default function Article({article}) {
                             display: flex;
                             border-bottom: 2px solid lightgray;
                             padding: 20px 40px;
-                            height: 500px;
+                            align-items: center;
                         }
                         .article-card:hover {
                             cursor: pointer;
@@ -54,18 +53,77 @@ export default function Article({article}) {
                             align-content: flex-start;
                             justify-content: space-around;
                             align-items: flex-start;
-    
-                            padding: 25px;
-                            max-width: 60%
+                            padding: 25px 25px;
+                            max-width: 40%;
+                        }
+
+                        .title {
+                            display: inline;
+                            font-weight: bold;
+                            font-size: 24px;
                         }
                         .createdAt {
-                            font-size: 14px;
+                            display: inline;
+                            font-size: 10px;
                         }
                         .excerpt {
-                            font-size: 14px;
+                            display: inline;
+                            font-size: 12px;
                         }
                         .author {
+                            display: inline;
                             font-size: 14px;
+                        }
+
+                        @media only screen and (max-width: 1100px) {
+                            .excerpt {
+                                display: none;
+                            }
+                        }
+                        @media only screen and (max-width: 800px) {
+                            .title {
+                                 font-size: 16px
+                            }
+                        }
+                        @media only screen and (max-width: 750px) {
+                            .article-card {
+                                padding: 20px 20px;    
+                            }
+
+                            .content {
+                                padding: 15px 15px;
+                            }
+                            .featured {
+                                max-width: 50%;
+                            }
+                        }
+                        @media only screen and (max-width: 570px) {
+                            article-card {
+                                padding: 15px 15px;     
+                            }
+
+                            content {
+                                padding: 10px 10px;
+                                line-height: 0.0000000000000000000000000001;
+                            }
+                            .title{
+                                display: inline;
+                                font-size: 12px;
+                                line-height: 2;
+                            }
+                            .author, .createdAt {
+                                display: none;
+                            }
+                        }
+
+                        @media only screen and (max-width: 500px) {
+                            .article-card {
+                                padding: 10px 10px;    
+                            }
+
+                            .content {
+                                padding: 5px 5px;
+                            }
                         }
                     `}
                 </style>
