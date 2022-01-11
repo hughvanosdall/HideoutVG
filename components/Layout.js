@@ -74,7 +74,6 @@ export default function Layout({ children }) {
   
         <style jsx>{`
           header {
-            position: sticky;
             z-index: 50;
           }
           .page-content, footer {
