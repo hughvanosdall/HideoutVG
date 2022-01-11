@@ -75,9 +75,10 @@ export default function Layout({ children }) {
         <style jsx>{`
           header {
             position: sticky;
+            z-index: 50;
           }
           .page-content, footer {
-            z-index: -5;
+            z-index: 0;
           }
           
           .hamburger {
@@ -91,7 +92,7 @@ export default function Layout({ children }) {
             transition: 0.75s;
             display: flex;
             background-color: blue;
-            
+            z-index: 10;
             align-items: center;
             flex-direction: column;
             flex-wrap: nowrap;
