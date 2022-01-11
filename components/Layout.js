@@ -73,12 +73,34 @@ export default function Layout({ children }) {
         </footer>
   
         <style jsx>{`
+          header {
+            position: sticky;
+          }
           .page-content, footer {
             z-index: -5;
           }
           
           .hamburger {
             display: none;
+          }
+          .mobile-links {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            top: -100em;
+            transition: 0.75s;
+            display: flex;
+            background-color: blue;
+            
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: center;
+          }
+
+          .mobile-links.active {
+            top: 0;
           }
 
           @media only screen and (max-width: 769px) {
@@ -89,28 +111,20 @@ export default function Layout({ children }) {
               display: block;
               z-index: 1000;
             }
-
-            .mobile-links {
-              position: absolute;
-              width: 100vw;
-              height: 100vh;
-              left: -100em;
-              transition: 1s;
-              display: flex;
-              background-color: blue;
-              
-              align-items: center;
-              flex-direction: column;
-              flex-wrap: nowrap;
-              align-content: center;
-              justify-content: center;
-            }
-
-            .mobile-links.active {
-              left: 0;
-            }
   
           }
+
+          @media only screen and (max-width: 500px) {
+            .title-main {
+              font-size: 0.75em;
+              font-weight: 600;
+            }
+
+            .title-sub {
+              font-size: 1.25em;
+              font-weight: 800;
+            }
+        }
         `}</style>
       </div>
     </>
