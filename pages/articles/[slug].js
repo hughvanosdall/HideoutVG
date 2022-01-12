@@ -1,5 +1,6 @@
 import { createClient } from 'contentful'
 import Image from 'next/image'
+import React, {useEffect} from 'react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Skeleton from '../../components/Skeleton'
 
@@ -29,7 +30,9 @@ export const getStaticProps = async ({ params }) => {
   const { items } = await client.getEntries({
     content_type: 'article',
     'fields.slug': params.slug
-  })
+  });
+
+  
   
 
   if(!items.length) {
@@ -48,8 +51,26 @@ export const getStaticProps = async ({ params }) => {
 
 }
 
+
 export default function ArticleDetails({ article }) {
+  const loadComments = () => {
+    var disqus_config = function () {
+      this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = article.fields.slug; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    const script = document.createElement('script');
+    script.src = 'https://https-hideout-vg-vercel-app.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+
+    document.body.appendChild(script);
+  }
+
   
+  useEffect(() => {
+    loadComments();
+  }, [])
+
+
   if(!article) {
     return (
       <Skeleton />
@@ -71,6 +92,8 @@ export default function ArticleDetails({ article }) {
       <div className="article-content">
         <article>{documentToReactComponents(articleText)}</article>
       </div>
+
+      <div id="disqus_thread"></div>
 
       <style jsx>{`
         .article-content {

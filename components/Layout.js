@@ -90,7 +90,7 @@ export default function Layout({ children }) {
             top: -100em;
             transition: 0.75s;
             display: flex;
-            background-color: blue;
+            background-color: #f01b29;
             z-index: 10;
             align-items: center;
             flex-direction: column;

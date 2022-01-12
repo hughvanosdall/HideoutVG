@@ -10,8 +10,6 @@ export default function Article({article}) {
     createdAt = createdAt.split(' ').slice(1,4);
     createdAt = `${createdAt[0]} ${createdAt[1]}, ${createdAt[2]}`
     
-    console.log(article)
-
     return (
         <Link href={`/articles/${slug}`}>
             <div className="article-card">
