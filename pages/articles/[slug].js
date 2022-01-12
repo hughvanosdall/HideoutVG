@@ -79,7 +79,7 @@ export default function ArticleDetails({ article }) {
   const {featuredImage, title, articleText} = article.fields;
 
   return (
-    <div>
+    <div className="article">
       <div className="banner">
         <Image 
           src={`https:${featuredImage.fields.file.url}`}

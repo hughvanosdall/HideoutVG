@@ -11,7 +11,6 @@ export default function Layout({ children }) {
   }
 
   useEffect(() => {
-    console.log(menuOpen);
     if(menuOpen === true) {
       document.body.style.overflow = 'hidden';
       
@@ -27,7 +26,7 @@ export default function Layout({ children }) {
         <header>
           <div className="page-title">
             <Link href="/">
-              <a>
+              <a onClick={menuOpen === true ? toggleMenu : null}>
                 <h1>
                   <span className="title-main">Hideout<span className="title-sub">VG</span></span>
                 </h1>

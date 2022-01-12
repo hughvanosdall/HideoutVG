@@ -79,11 +79,16 @@ footer {
   padding: 10px;
 }
 
+.article {
+  width: 80%;
+}
+
 .article-list {
   display: flex;
   flex-direction: column;
   align-content: flex-start;
   justify-content: center;
+  width: 100%;
 }
 
 .mobile-links a{
