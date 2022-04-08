@@ -77,7 +77,7 @@ export default function ArticleDetails({ article }) {
     )
   }
   const {featuredImage, title, articleText} = article.fields;
-
+  console.log(articleText)
   return (
     <div className="article">
       <div className="banner">

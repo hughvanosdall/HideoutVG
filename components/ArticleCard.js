@@ -4,11 +4,11 @@ import Image from 'next/image'
 
 export default function Article({article}) {
     const {title, slug, thumbnail, excerpt, author} = article.fields;
-    let {createdAt} = article.sys
-    const date = new Date(createdAt);
-    createdAt = date.toString();
-    createdAt = createdAt.split(' ').slice(1,4);
-    createdAt = `${createdAt[0]} ${createdAt[1]}, ${createdAt[2]}`
+    let {updatedAt} = article.sys
+    const date = new Date(updatedAt);
+    updatedAt = date.toString();
+    updatedAt = updatedAt.split(' ').slice(1,4);
+    updatedAt = `${updatedAt[0]} ${updatedAt[1]}, ${updatedAt[2]}`
     
     return (
         <Link href={`/articles/${slug}`}>
@@ -24,7 +24,7 @@ export default function Article({article}) {
                 <div className="content">
                     <div className="info">
                         <h2 className="title">{title}</h2><br/>
-                        <p className="author">{author} <span className="createdAt">{createdAt}</span></p><br/>
+                        <p className="author">{author} <span className="updatedAt">{updatedAt}</span></p><br/>
                         <p className="excerpt">{excerpt}</p>
                     </div>
                 </div>
@@ -60,7 +60,7 @@ export default function Article({article}) {
                             font-weight: bold;
                             font-size: 24px;
                         }
-                        .createdAt {
+                        .updatedAt {
                             display: inline;
                             font-size: 10px;
                         }
@@ -109,7 +109,7 @@ export default function Article({article}) {
                                 font-size: 12px;
                                 line-height: 2;
                             }
-                            .author, .createdAt {
+                            .author, .updatedAt {
                                 display: none;
                             }
                         }

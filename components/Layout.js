@@ -28,7 +28,7 @@ export default function Layout({ children }) {
             <Link href="/">
               <a onClick={menuOpen === true ? toggleMenu : null}>
                 <h1>
-                  <span className="title-main">Hideout<span className="title-sub">VG</span></span>
+                  <span className="title-main">Hugh<span className="title-sub">VG</span></span>
                 </h1>
               </a>
             </Link>
@@ -68,7 +68,7 @@ export default function Layout({ children }) {
         </div>
   
         <footer>
-          <p>Copyright 2021 <span className="title-main">HIDEOUT<span className="title-sub">VG</span></span></p>
+          <p><span id="copyright">Copyright 2021</span> <span className="title-main footer-main">HIDEOUT<span className="title-sub footer-sub">VG</span></span></p>
         </footer>
   
         <style jsx>{`
@@ -122,6 +122,21 @@ export default function Layout({ children }) {
             .title-sub {
               font-size: 1.25em;
               font-weight: 800;
+            }
+
+            footer {
+              padding: 20px;
+            }
+
+            #copyright {
+              font-size: 0.6em;
+            }
+
+            .footer-main {
+              font-size: 0.75em;
+            }
+            .footer-sub {
+              font-size: 1.25em;
             }
         }
         `}</style>
