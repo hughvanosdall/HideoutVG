@@ -28,7 +28,7 @@ export default function Layout({ children }) {
             <Link href="/">
               <a onClick={menuOpen === true ? toggleMenu : null}>
                 <h1>
-                  <span className="title-main">Hugh<span className="title-sub">VG</span></span>
+                  <span className="title-main">Hideout<span className="title-sub">VG</span></span>
                 </h1>
               </a>
             </Link>
