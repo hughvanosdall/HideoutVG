@@ -2,6 +2,8 @@ import Link from 'next/link'
 import React, {useState, useEffect} from 'react'
 import Hamburger from './Hamburger'
 import Navbar from './Navbar'
+import Head from 'next/head'
+
 
 export default function Layout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,6 +24,10 @@ export default function Layout({ children }) {
 
   return (
     <>
+      <Head>
+        <title>Hideout VG - Video Game News, Reviews, and Blogs</title>
+        <meta name="description" content="Video Game news, reviews, and blog posts" />
+      </Head>
       <div className="layout">
         <header>
           <div className="page-title">

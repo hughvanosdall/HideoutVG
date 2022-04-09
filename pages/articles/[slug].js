@@ -59,7 +59,7 @@ export default function ArticleDetails({ article }) {
       this.page.identifier = article.fields.slug; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     const script = document.createElement('script');
-    script.src = 'https://https-hideout-vg-vercel-app.disqus.com/embed.js';
+    script.src = 'https://hideoutvg.disqus.com/embed.js';
     script.setAttribute('data-timestamp', +new Date());
 
     document.body.appendChild(script);
