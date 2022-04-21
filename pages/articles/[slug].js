@@ -79,19 +79,19 @@ export default function ArticleDetails({ article }) {
   const {featuredImage, title, articleText} = article.fields;
   console.log(articleText)
   return (
-    <div className="article">
-      <div className="banner">
+    <article className="article">
+      <section className="banner">
         <Image 
           src={`https:${featuredImage.fields.file.url}`}
           width={featuredImage.fields.file.details.image.width}
           height={featuredImage.fields.file.details.image.height}
         />
         <h2>{title}</h2>
-      </div>
+      </section>
 
-      <div className="article-content">
+      <section className="article-content">
         <article>{documentToReactComponents(articleText)}</article>
-      </div>
+      </section>
 
       <div id="disqus_thread"></div>
 
@@ -100,6 +100,6 @@ export default function ArticleDetails({ article }) {
           font-size: 0.75em;
         }
       `}</style>
-    </div>
+    </article>
   )
 }
